@@ -8,7 +8,7 @@ namespace GeradorDeTestes.ModuloDisciplina
 
         public string Nome { get; set; }
 
-        //public Materia materia { get; set; }
+        //public List<Materia> Materias { get; set; }
 
         public Disciplina(string nome)
         {
@@ -28,8 +28,17 @@ namespace GeradorDeTestes.ModuloDisciplina
 
             if (string.IsNullOrEmpty(Nome.Trim()))
                 erros.Add("O campo \"nome\" é obrigatório");
-
+            
             return erros;
+        }
+
+        public bool ExisteDisciplina(List<Disciplina> disciplinas)
+        {
+            foreach (Disciplina d in disciplinas)
+                if (d.Nome == Nome)
+                    return true;
+
+            return false;
         }
 
         public override string ToString()

@@ -27,7 +27,7 @@ namespace GeradorDeTestes.ModuloDisciplina
 
         public override void Adicionar()
         {
-            TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm();
+            TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm(repositorioDisciplina.SelecionarTodos());
 
             DialogResult resultado = telaDisciplina.ShowDialog();
 
@@ -40,7 +40,7 @@ namespace GeradorDeTestes.ModuloDisciplina
 
             repositorioDisciplina.Cadastrar(novaDisciplina);
 
-            CarregarItens();
+            CarregarDisciplinas();
 
             TelaPrincipalForm
                 .Instancia
@@ -49,7 +49,7 @@ namespace GeradorDeTestes.ModuloDisciplina
 
         public override void Editar()
         {
-            TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm();
+            TelaDisciplinaForm telaDisciplina = new TelaDisciplinaForm(repositorioDisciplina.SelecionarTodos());
 
             int idSelecionado = tabelaDisciplina.ObterRegistroSelecionado();
 
@@ -78,7 +78,7 @@ namespace GeradorDeTestes.ModuloDisciplina
 
             repositorioDisciplina.Editar(disciplinaSelecionada.Id, disciplinaEditada);
 
-            CarregarItens();
+            CarregarDisciplinas();
 
             TelaPrincipalForm
                 .Instancia
@@ -115,18 +115,18 @@ namespace GeradorDeTestes.ModuloDisciplina
 
             repositorioDisciplina.Excluir(disciplinaSelecionada.Id);
 
-            CarregarItens();
+            CarregarDisciplinas();
 
             TelaPrincipalForm
                 .Instancia
                 .AtualizarRodape($"O registro\"{disciplinaSelecionada.Nome}\" foi excluído com sucesso!");
         }
 
-        private void CarregarItens()
+        private void CarregarDisciplinas()
         {
-            List<Disciplina> itens = repositorioDisciplina.SelecionarTodos();
+            List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
 
-            tabelaDisciplina.AtualizarRegistros(itens);
+            tabelaDisciplina.AtualizarRegistros(disciplinas);
         }
 
         public override UserControl ObterListagem()
@@ -134,7 +134,7 @@ namespace GeradorDeTestes.ModuloDisciplina
             if (tabelaDisciplina == null)
                 tabelaDisciplina = new TabelaDisciplinaControl();
 
-            CarregarItens();
+            CarregarDisciplinas();
 
             return tabelaDisciplina;
         }

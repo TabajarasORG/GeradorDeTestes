@@ -19,6 +19,7 @@ namespace GeradorDeTestes
             Instancia = this;
 
             repositorioDisciplina = new RepositorioDisciplina();
+            CadastrarRegistrosTeste();
         }
 
         public void AtualizarRodape(string texto)
@@ -74,12 +75,23 @@ namespace GeradorDeTestes
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
         {
-            UserControl listagemCliente = controladorSelecionado.ObterListagem();
-            listagemCliente.Dock = DockStyle.Fill;
+            UserControl listagemObjeto = controladorSelecionado.ObterListagem();
+            listagemObjeto.Dock = DockStyle.Fill;
 
             pnlRegistros.Controls.Clear();
-            pnlRegistros.Controls.Add(listagemCliente);
+            pnlRegistros.Controls.Add(listagemObjeto);
         }
 
+        private void CadastrarRegistrosTeste()
+        {
+            List<Disciplina> disciplinas = new List<Disciplina>()
+            {
+                new("Matematica"),
+                new("Português"),
+                new("Geografia")
+            };
+
+            repositorioDisciplina.CadastrarVarios(disciplinas);
+        }
     }
 }
