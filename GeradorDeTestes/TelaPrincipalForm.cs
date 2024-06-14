@@ -1,6 +1,7 @@
 using eAgenda.WinApp.Compartilhado;
 using GeradorDeTestes.ModuloDisciplina;
 using GeradorDeTestes.ModuloMateria;
+using GeradorDeTestes.ModuloQuestao;
 
 namespace GeradorDeTestes
 {
@@ -10,6 +11,7 @@ namespace GeradorDeTestes
 
         RepositorioDisciplina repositorioDisciplina;
         RepositorioMateria repositorioMateria;
+        RepositorioQuestao repositorioQuestao;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -22,6 +24,7 @@ namespace GeradorDeTestes
 
             repositorioDisciplina = new RepositorioDisciplina();
             repositorioMateria = new RepositorioMateria();
+            repositorioQuestao = new RepositorioQuestao();
             CadastrarRegistrosTeste();
         }
 
@@ -40,6 +43,13 @@ namespace GeradorDeTestes
         private void materiaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorMateria(repositorioMateria,repositorioDisciplina);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        private void questõesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorQuestao(repositorioQuestao);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -103,5 +113,6 @@ namespace GeradorDeTestes
             };
             repositorioDisciplina.CadastrarVarios(disciplinas);
         }
+
     }
 }

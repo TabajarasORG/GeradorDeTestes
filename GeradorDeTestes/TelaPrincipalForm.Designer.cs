@@ -41,6 +41,7 @@
             statusLabelPrincipal = new ToolStripStatusLabel();
             pnlRegistros = new Panel();
             materiaToolStripMenuItem = new ToolStripMenuItem();
+            questõesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -59,6 +60,7 @@
             // 
             geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem, materiaToolStripMenuItem });
             geradorDeTestesToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem, questõesToolStripMenuItem });
             geradorDeTestesToolStripMenuItem.Name = "geradorDeTestesToolStripMenuItem";
             geradorDeTestesToolStripMenuItem.Size = new Size(140, 24);
             geradorDeTestesToolStripMenuItem.Text = "Gerador de Testes";
@@ -160,6 +162,13 @@
             materiaToolStripMenuItem.Text = "Materia";
             materiaToolStripMenuItem.Click += materiaToolStripMenuItem_Click;
             // 
+            // questõesToolStripMenuItem
+            // 
+            questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
+            questõesToolStripMenuItem.Size = new Size(180, 22);
+            questõesToolStripMenuItem.Text = "Questões";
+            questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -201,5 +210,6 @@
         private Panel pnlRegistros;
         private ToolStripStatusLabel statusLabelPrincipal;
         private ToolStripMenuItem materiaToolStripMenuItem;
+        private ToolStripMenuItem questõesToolStripMenuItem;
     }
 }
