@@ -40,6 +40,7 @@
             statusStrip1 = new StatusStrip();
             statusLabelPrincipal = new ToolStripStatusLabel();
             pnlRegistros = new Panel();
+            materiaToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -50,21 +51,22 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { geradorDeTestesToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(800, 28);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // geradorDeTestesToolStripMenuItem
             // 
-            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem });
+            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem, materiaToolStripMenuItem });
+            geradorDeTestesToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             geradorDeTestesToolStripMenuItem.Name = "geradorDeTestesToolStripMenuItem";
-            geradorDeTestesToolStripMenuItem.Size = new Size(111, 20);
+            geradorDeTestesToolStripMenuItem.Size = new Size(140, 24);
             geradorDeTestesToolStripMenuItem.Text = "Gerador de Testes";
             // 
             // disciplinaToolStripMenuItem
             // 
             disciplinaToolStripMenuItem.Name = "disciplinaToolStripMenuItem";
-            disciplinaToolStripMenuItem.Size = new Size(125, 22);
+            disciplinaToolStripMenuItem.Size = new Size(180, 24);
             disciplinaToolStripMenuItem.Text = "Disciplina";
             disciplinaToolStripMenuItem.Click += disciplinaToolStripMenuItem_Click;
             // 
@@ -72,7 +74,7 @@
             // 
             toolStrip1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, toolStripSeparator1, lblTipoCadastro });
-            toolStrip1.Location = new Point(0, 24);
+            toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 41);
             toolStrip1.TabIndex = 1;
@@ -146,10 +148,17 @@
             // pnlRegistros
             // 
             pnlRegistros.Dock = DockStyle.Fill;
-            pnlRegistros.Location = new Point(0, 65);
+            pnlRegistros.Location = new Point(0, 69);
             pnlRegistros.Name = "pnlRegistros";
-            pnlRegistros.Size = new Size(800, 360);
+            pnlRegistros.Size = new Size(800, 356);
             pnlRegistros.TabIndex = 3;
+            // 
+            // materiaToolStripMenuItem
+            // 
+            materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
+            materiaToolStripMenuItem.Size = new Size(180, 24);
+            materiaToolStripMenuItem.Text = "Materia";
+            materiaToolStripMenuItem.Click += materiaToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -191,5 +200,6 @@
         private StatusStrip statusStrip1;
         private Panel pnlRegistros;
         private ToolStripStatusLabel statusLabelPrincipal;
+        private ToolStripMenuItem materiaToolStripMenuItem;
     }
 }
