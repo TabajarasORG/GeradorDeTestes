@@ -121,9 +121,9 @@ namespace GeradorDeTestes.ModuloQuestao
             clbAlternativas.Items.Clear();
 
             letra = 'A';
-            foreach (var item in itensTeporarios)
+            foreach (Alternativa item in itensTeporarios)
             {
-                Alternativa alternativa = new Alternativa(letra, txtResposta.Text);
+                Alternativa alternativa = new Alternativa(letra, item.Resposta);
                 clbAlternativas.Items.Add(alternativa);
                 letra++;
             }
