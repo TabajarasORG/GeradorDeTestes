@@ -1,4 +1,5 @@
 ﻿using eAgenda.WinApp.Compartilhado;
+using GeradorDeTestes.ModuloMateria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,12 @@ namespace GeradorDeTestes.ModuloDisciplina
     {
         private RepositorioDisciplina repositorioDisciplina;
         private TabelaDisciplinaControl tabelaDisciplina;
+        private RepositorioMateria repositorioMateria;
 
-        public ControladorDisciplina(RepositorioDisciplina repositorio)
+        public ControladorDisciplina(RepositorioDisciplina repositorio, RepositorioMateria repositorioMateria)
         {
             this.repositorioDisciplina = repositorio;
+            this.repositorioMateria = repositorioMateria;
         }
 
         public override string TipoCadastro { get { return "Disciplina"; } }
@@ -103,6 +106,17 @@ namespace GeradorDeTestes.ModuloDisciplina
                 return;
             }
 
+            if (disciplinaSelecionada.Materias.Count > 0)
+            {
+                MessageBox.Show(
+                    "Não é possível realizar esta ação com uma materia vinculada a disciplina.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
             DialogResult resposta = MessageBox.Show(
                 $"Você deseja realmente excluir o registro \"{disciplinaSelecionada.Nome}\"?",
                 "Confirmar Exclusão",
@@ -121,6 +135,8 @@ namespace GeradorDeTestes.ModuloDisciplina
                 .Instancia
                 .AtualizarRodape($"O registro\"{disciplinaSelecionada.Nome}\" foi excluído com sucesso!");
         }
+
+        
 
         private void CarregarDisciplinas()
         {

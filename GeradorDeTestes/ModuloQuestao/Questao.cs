@@ -1,6 +1,7 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
 using FestasInfantis.WinApp.Compartilhado;
 using GeradorDeTestes.ModuloDisciplina;
+using GeradorDeTestes.ModuloMateria;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,11 +13,11 @@ namespace GeradorDeTestes.ModuloQuestao
     public class Questao : EntidadeBase
     {
 
-        public /*Materia*/string Materia { get; set; }
+        public Materia Materia { get; set; }
         public string Enunciado { get; set; }
         public List<Alternativa> Alternativas { get; set; }
 
-        public Questao(string materia, string enunciado, List<Alternativa> alternativas)
+        public Questao(Materia materia, string enunciado, List<Alternativa> alternativas)
         {
             Materia = materia;
             Enunciado = enunciado;
@@ -36,15 +37,17 @@ namespace GeradorDeTestes.ModuloQuestao
         {
             List<string> erros = new List<string>();
 
-            //if (Materia == null)
-            //    erros.Add("O campo \"nome\" é obrigatório");
+            if (Materia == null)
+                erros.Add("O campo \"nome\" é obrigatório");
+
+
 
             return erros;
         }
 
-        public override string ToString()
-        {
-            return Materia.ToTitleCase();
-        }
+        //public override string ToString()
+        //{
+        //    return Materia.ToTitleCase();
+        //}
     }
 }

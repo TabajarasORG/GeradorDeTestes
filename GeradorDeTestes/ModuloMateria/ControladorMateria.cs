@@ -34,13 +34,13 @@ namespace GeradorDeTestes.ModuloMateria
 
             List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
 
-            telaMateria.ListaDisciplina(disciplinas);
+            telaMateria.CarregarDisciplina(disciplinas);
 
             DialogResult resultado = telaMateria.ShowDialog();
 
             if(resultado != DialogResult.OK)
                 return;
-
+            
             Materia novaMateria = telaMateria.Materia;
 
             repositorioMateria.Cadastrar(novaMateria);
@@ -54,7 +54,7 @@ namespace GeradorDeTestes.ModuloMateria
 
             List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
 
-            telaMateria.ListaDisciplina(disciplinas);
+            telaMateria.CarregarDisciplina(disciplinas);
 
             int idSelecionado = tabelaMateria.ObterRegistroSelecionado();
 
@@ -94,6 +94,21 @@ namespace GeradorDeTestes.ModuloMateria
                     MessageBoxIcon.Information
                     );
                 return;
+            }
+
+            
+            List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
+
+            foreach(Disciplina disciplina in disciplinas)
+            {
+                foreach (Materia materia in disciplina.Materias)
+                {
+                    if (idSelecionado == materia.Id)
+                    {
+                        disciplina.Materias.Remove(materia);
+                    }
+                }
+                
             }
 
             DialogResult resposta = MessageBox.Show(

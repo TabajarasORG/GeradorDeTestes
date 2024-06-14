@@ -1,5 +1,6 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
 using FestasInfantis.WinApp.Compartilhado;
+using GeradorDeTestes.ModuloMateria;
 
 namespace GeradorDeTestes.ModuloDisciplina
 {
@@ -8,11 +9,12 @@ namespace GeradorDeTestes.ModuloDisciplina
 
         public string Nome { get; set; }
 
-        //public List<Materia> Materias { get; set; }
+        public List<Materia> Materias { get; set; }
 
         public Disciplina(string nome)
         {
             Nome = nome;
+            Materias = new List<Materia>();
         }
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)

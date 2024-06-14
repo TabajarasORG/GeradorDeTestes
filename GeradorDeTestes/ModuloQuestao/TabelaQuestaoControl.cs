@@ -32,7 +32,7 @@ namespace GeradorDeTestes.ModuloQuestao
             foreach (Questao i in questao)
             {
                 Alternativa alternativa = i.Alternativas.Find(a => a.Correta == true);
-                gridQuestao.Rows.Add(i.Id, i.Materia.ToTitleCase(), i.Enunciado, alternativa);
+                gridQuestao.Rows.Add(i.Id, i.Materia, i.Enunciado, alternativa);
             }
         }
 

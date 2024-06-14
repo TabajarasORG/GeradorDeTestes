@@ -20,7 +20,7 @@ namespace GeradorDeTestes.ModuloMateria
             {
                 txtId.Text = value.Id.ToString();
                 txtNome.Text = value.Nome;
-                cmbDisciplina.Text = value.Disciplina;
+                cmbDisciplina.Text = value.Disciplina.ToString();
             }
 
             get { return materia; }
@@ -31,7 +31,7 @@ namespace GeradorDeTestes.ModuloMateria
             InitializeComponent();
         }
 
-        public void ListaDisciplina(List<Disciplina> disciplinas)
+        public void CarregarDisciplina(List<Disciplina> disciplinas)
         {
             cmbDisciplina.Items.Clear();
 
@@ -44,7 +44,7 @@ namespace GeradorDeTestes.ModuloMateria
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string nome = txtNome.Text;
-            string disciplina = cmbDisciplina.Text;
+            Disciplina disciplina = (Disciplina)cmbDisciplina.SelectedItem;
             string serie = "";
 
             if (rbPrimeiraSerie.Checked)
@@ -54,6 +54,8 @@ namespace GeradorDeTestes.ModuloMateria
                 serie = rbSegundaSerie.Text;
 
             materia = new Materia(nome, disciplina, serie);
+
+            materia.Disciplina.Materias.Add(materia);
 
             List<string> erros = materia.Validar();
         }

@@ -1,5 +1,6 @@
 ﻿using eAgenda.WinApp.Compartilhado;
 using GeradorDeTestes.ModuloDisciplina;
+using GeradorDeTestes.ModuloMateria;
 
 namespace GeradorDeTestes.ModuloQuestao
 {
@@ -7,10 +8,12 @@ namespace GeradorDeTestes.ModuloQuestao
     {
         private RepositorioQuestao repositorioQuestao;
         private TabelaQuestaoControl tabelaQuestao;
+        private RepositorioMateria repositorioMateria;
 
-        public ControladorQuestao(RepositorioQuestao repositorio)
+        public ControladorQuestao(RepositorioQuestao repositorio, RepositorioMateria repositorioMateria)
         {
             this.repositorioQuestao = repositorio;
+            this.repositorioMateria = repositorioMateria;
         }
         public override string TipoCadastro { get { return "Questões"; } }
 
@@ -24,6 +27,10 @@ namespace GeradorDeTestes.ModuloQuestao
         public override void Adicionar()
         {
             TelaQuestaoForm telaQuestao = new TelaQuestaoForm(/*repositorioQuestao.SelecionarTodos()*/);
+
+            List<Materia> materias = repositorioMateria.SelecionarTodos();
+
+            telaQuestao.CarregarMaterias(materias);
 
             DialogResult resultado = telaQuestao.ShowDialog();
 
@@ -46,6 +53,10 @@ namespace GeradorDeTestes.ModuloQuestao
         public override void Editar()
         {
             TelaQuestaoForm telaQuestao = new TelaQuestaoForm(/*repositorioQuestao.SelecionarTodos()*/);
+
+            List<Materia> materias = repositorioMateria.SelecionarTodos();
+
+            telaQuestao.CarregarMaterias(materias);
 
             int idSelecionado = tabelaQuestao.ObterRegistroSelecionado();
 

@@ -35,7 +35,7 @@ namespace GeradorDeTestes
 
         private void disciplinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorDisciplina(repositorioDisciplina);
+            controlador = new ControladorDisciplina(repositorioDisciplina, repositorioMateria);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -49,7 +49,7 @@ namespace GeradorDeTestes
 
         private void questõesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorQuestao(repositorioQuestao);
+            controlador = new ControladorQuestao(repositorioQuestao, repositorioMateria);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -112,6 +112,15 @@ namespace GeradorDeTestes
                 new("Geografia")
             };
             repositorioDisciplina.CadastrarVarios(disciplinas);
+
+            List<Materia> materias = new List<Materia>()
+            {
+                new("Soma", null, null),
+                new("Vogais", null, null),
+                new("Rios", null, null)
+            };
+            repositorioMateria.CadastrarVarios(materias);
+
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using GeradorDeTestes.ModuloDisciplina;
+using GeradorDeTestes.ModuloMateria;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,13 +17,12 @@ namespace GeradorDeTestes.ModuloQuestao
     {
         private Questao questao;
 
-        private List<Questao> questoes;
-
+        //private List<Questao> questoes;
         public Questao Questao
         {
             set
             {
-                cmbMateria.SelectedItem = value.Materia.ToString();
+                cmbMateria.Text = value.Materia.ToString();
                 txtEnunciado.Text = value.Enunciado;
 
                 foreach (var item in value.Alternativas)
@@ -44,9 +44,17 @@ namespace GeradorDeTestes.ModuloQuestao
 
         public Char letra = 'A';
 
+        public void CarregarMaterias(List<Materia> materias)
+        {
+            cmbMateria.Items.Clear();
+
+            foreach (Materia materia in materias)
+                cmbMateria.Items.Add(materia);
+        }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            string materia = cmbMateria.Text;
+            Materia materia = (Materia)cmbMateria.SelectedItem;
             string enunciado = txtEnunciado.Text;
             
             MenosDeDuasAlternativas();
@@ -63,7 +71,6 @@ namespace GeradorDeTestes.ModuloQuestao
 
             questao = new Questao(materia, enunciado, alternativasSelecionadas);
 
-            //como fazer um if que verifica se tem itens estão marcados em um checklistbox
             List<string> erros = Questao.Validar();
 
             if (erros.Count > 0)
@@ -173,6 +180,5 @@ namespace GeradorDeTestes.ModuloQuestao
                 return;
             }
         }
-
     }
 }

@@ -1,4 +1,5 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
+using GeradorDeTestes.ModuloDisciplina;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,11 +12,11 @@ namespace GeradorDeTestes.ModuloMateria
     {
 
         public string Nome {  get; set; }
-        public string Disciplina {  get; set; }
+        public Disciplina Disciplina {  get; set; }
         public string Serie { get; set; }
 
 
-        public Materia(string nome,string disciplina, string serie)
+        public Materia(string nome,Disciplina disciplina, string serie)
         {
             Nome = nome;
             Disciplina = disciplina;
@@ -46,7 +47,7 @@ namespace GeradorDeTestes.ModuloMateria
 
         public override string ToString()
         {
-            return $"id: {Id}, Nome: {Nome}, Serie: {Serie}";
+            return $"{Nome}, {Serie}";
         }
 
     }
