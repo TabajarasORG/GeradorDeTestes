@@ -40,6 +40,7 @@
             statusStrip1 = new StatusStrip();
             statusLabelPrincipal = new ToolStripStatusLabel();
             pnlRegistros = new Panel();
+            questõesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -56,7 +57,7 @@
             // 
             // geradorDeTestesToolStripMenuItem
             // 
-            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem });
+            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem, questõesToolStripMenuItem });
             geradorDeTestesToolStripMenuItem.Name = "geradorDeTestesToolStripMenuItem";
             geradorDeTestesToolStripMenuItem.Size = new Size(111, 20);
             geradorDeTestesToolStripMenuItem.Text = "Gerador de Testes";
@@ -64,7 +65,7 @@
             // disciplinaToolStripMenuItem
             // 
             disciplinaToolStripMenuItem.Name = "disciplinaToolStripMenuItem";
-            disciplinaToolStripMenuItem.Size = new Size(125, 22);
+            disciplinaToolStripMenuItem.Size = new Size(180, 22);
             disciplinaToolStripMenuItem.Text = "Disciplina";
             disciplinaToolStripMenuItem.Click += disciplinaToolStripMenuItem_Click;
             // 
@@ -151,6 +152,13 @@
             pnlRegistros.Size = new Size(800, 360);
             pnlRegistros.TabIndex = 3;
             // 
+            // questõesToolStripMenuItem
+            // 
+            questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
+            questõesToolStripMenuItem.Size = new Size(180, 22);
+            questõesToolStripMenuItem.Text = "Questões";
+            questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -191,5 +199,6 @@
         private StatusStrip statusStrip1;
         private Panel pnlRegistros;
         private ToolStripStatusLabel statusLabelPrincipal;
+        private ToolStripMenuItem questõesToolStripMenuItem;
     }
 }
