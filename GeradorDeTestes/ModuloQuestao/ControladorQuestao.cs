@@ -52,6 +52,8 @@ namespace GeradorDeTestes.ModuloQuestao
             Questao questaoSelecionada =
                 repositorioQuestao.SelecionarPorId(idSelecionado);
 
+
+
             if (questaoSelecionada == null)
             {
                 MessageBox.Show(
@@ -69,6 +71,8 @@ namespace GeradorDeTestes.ModuloQuestao
 
             if (resultado != DialogResult.OK)
                 return;
+
+
 
             Questao questaoEditada = telaQuestao.Questao;
 

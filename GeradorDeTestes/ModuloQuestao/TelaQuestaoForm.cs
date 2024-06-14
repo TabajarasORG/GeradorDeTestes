@@ -24,7 +24,12 @@ namespace GeradorDeTestes.ModuloQuestao
             {
                 cmbMateria.SelectedItem = value.Materia.ToString();
                 txtEnunciado.Text = value.Enunciado;
-                txtResposta.Text = value.Alternativas.Resposta.ToString();
+
+                foreach (var item in value.Alternativas)
+                {
+                    item.Correta = false;
+                    clbAlternativas.Items.Add(item);
+                }
             }
             get
             {
@@ -43,28 +48,20 @@ namespace GeradorDeTestes.ModuloQuestao
         {
             string materia = cmbMateria.Text;
             string enunciado = txtEnunciado.Text;
-
-            List<string> alternativasErradas = [];
-            string[] separador = [];
-            List<string> respostas = [];
-
             
-            foreach (string s in clbAlternativas.Items)
+            MenosDeDuasAlternativas();
+            SemRespostaSelecionada();
+            MaisDeUmaResposta();
+
+            if (clbAlternativas.CheckedItems.Count > 0)
             {
-                separador = s.Split("> ");
-
-                foreach (string i in clbAlternativas.CheckedItems)
-                {
-                    if (i == s)
-                        respostas.Add(separador[1]);
-
-                    else
-                        alternativasErradas.Add(separador[1]);
-                } 
+                Alternativa alternativa = (Alternativa)clbAlternativas.CheckedItems[0];
+                alternativa.Correta = true;
             }
-            Alternativas alternativas = new(alternativasErradas, respostas);
-            
-            questao = new Questao(materia, enunciado, alternativas);
+
+            List<Alternativa> alternativasSelecionadas = clbAlternativas.Items.Cast<Alternativa>().ToList();
+
+            questao = new Questao(materia, enunciado, alternativasSelecionadas);
 
             //como fazer um if que verifica se tem itens estão marcados em um checklistbox
             List<string> erros = Questao.Validar();
@@ -76,6 +73,7 @@ namespace GeradorDeTestes.ModuloQuestao
                 DialogResult = DialogResult.None;
             }
         }
+
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
@@ -94,8 +92,8 @@ namespace GeradorDeTestes.ModuloQuestao
             }
             else
             {
-                string resposta = ($"({letra}) -> {txtResposta.Text}");
-                clbAlternativas.Items.Add(resposta);
+                Alternativa alternativa = new Alternativa(letra, txtResposta.Text);
+                clbAlternativas.Items.Add(alternativa);
                 letra++;
             }
         }
@@ -103,29 +101,21 @@ namespace GeradorDeTestes.ModuloQuestao
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
-            var slecionaItens = new List<object>();
-
-            foreach (var item in clbAlternativas.CheckedItems)
+            if (clbAlternativas.SelectedItem != null) 
             {
-                slecionaItens.Add(item);
+                clbAlternativas.Items.Remove(clbAlternativas.SelectedItem);
             }
 
-            foreach (var item in slecionaItens)
-            {
-                clbAlternativas.Items.Remove(item);
-            }
-
-            //if (clbAlternativas.CheckedItems)
-                ReordenarAlternativas();
+            ReordenarAlternativas();
         }
 
         private void ReordenarAlternativas()
         {
-            var itensTeporarios = new List<string>();
+            var itensTeporarios = new List<Alternativa>();
 
-            foreach (var item in clbAlternativas.Items)
+            foreach (Alternativa item in clbAlternativas.Items)
             {
-                itensTeporarios.Add(item.ToString());
+                itensTeporarios.Add(item);
             }
 
             clbAlternativas.Items.Clear();
@@ -133,12 +123,56 @@ namespace GeradorDeTestes.ModuloQuestao
             letra = 'A';
             foreach (var item in itensTeporarios)
             {
-                string resposta = $"({letra}) ->{item.Substring(6)}";
-                clbAlternativas.Items.Add(resposta);
+                Alternativa alternativa = new Alternativa(letra, txtResposta.Text);
+                clbAlternativas.Items.Add(alternativa);
                 letra++;
             }
         }
 
+        private void SemRespostaSelecionada()
+        {
+            if (clbAlternativas.CheckedItems.Count <= 0)
+            {
+                MessageBox.Show(
+                    "Não é possível realizar esta ação pois nenhuma alternativa foi definida como resposta.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                DialogResult = DialogResult.None;
+                return;
+            }
+        }
+
+        private void MaisDeUmaResposta()
+        {
+            if (clbAlternativas.CheckedItems.Count > 1)
+            {
+                MessageBox.Show(
+                    "Não é possível selecionar mais de uma alternativa como resposta.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                DialogResult = DialogResult.None;
+                return;
+            }
+        }
+
+        private void MenosDeDuasAlternativas()
+        {
+            if (clbAlternativas.Items.Count < 2)
+            {
+                MessageBox.Show(
+                    "No mimnimo duas alternativas devem ser configuradas.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                DialogResult = DialogResult.None;
+                return;
+            }
+        }
 
     }
 }

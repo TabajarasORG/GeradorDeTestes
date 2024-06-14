@@ -14,9 +14,9 @@ namespace GeradorDeTestes.ModuloQuestao
 
         public /*Materia*/string Materia { get; set; }
         public string Enunciado { get; set; }
-        public Alternativas Alternativas { get; set; }
+        public List<Alternativa> Alternativas { get; set; }
 
-        public Questao(string materia, string enunciado, Alternativas alternativas)
+        public Questao(string materia, string enunciado, List<Alternativa> alternativas)
         {
             Materia = materia;
             Enunciado = enunciado;
