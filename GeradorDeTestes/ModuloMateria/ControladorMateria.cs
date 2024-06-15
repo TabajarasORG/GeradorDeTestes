@@ -101,7 +101,7 @@ namespace GeradorDeTestes.ModuloMateria
 
             foreach(Disciplina disciplina in disciplinas)
             {
-                foreach (Materia materia in disciplina.Materias)
+                foreach (Materia materia in disciplina.Materias.ToList())
                 {
                     if (idSelecionado == materia.Id)
                     {

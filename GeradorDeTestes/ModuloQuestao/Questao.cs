@@ -41,13 +41,7 @@ namespace GeradorDeTestes.ModuloQuestao
                 erros.Add("O campo \"nome\" é obrigatório");
 
 
-
             return erros;
         }
-
-        //public override string ToString()
-        //{
-        //    return Materia.ToTitleCase();
-        //}
     }
 }
