@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaTesteForm));
             txtTitulo = new TextBox();
             lblTitulo = new Label();
             lblDisciplina = new Label();
@@ -210,6 +211,7 @@
             Controls.Add(lblDisciplina);
             Controls.Add(lblTitulo);
             Controls.Add(txtTitulo);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TelaTesteForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "TelaTesteForm";
