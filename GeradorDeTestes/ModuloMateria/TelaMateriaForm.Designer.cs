@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaMateriaForm));
             txtId = new TextBox();
             lblId = new Label();
             txtNome = new TextBox();
@@ -170,6 +171,7 @@
             Controls.Add(txtNome);
             Controls.Add(lblId);
             Controls.Add(txtId);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TelaMateriaForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Cadastro de Materias";

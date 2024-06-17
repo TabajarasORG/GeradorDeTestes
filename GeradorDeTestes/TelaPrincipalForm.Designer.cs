@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             menuStrip1 = new MenuStrip();
             geradorDeTestesToolStripMenuItem = new ToolStripMenuItem();
             disciplinaToolStripMenuItem = new ToolStripMenuItem();
+            materiaToolStripMenuItem = new ToolStripMenuItem();
+            questõesToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             btnAdicionar = new ToolStripButton();
             btnEditar = new ToolStripButton();
@@ -40,8 +43,6 @@
             statusStrip1 = new StatusStrip();
             statusLabelPrincipal = new ToolStripStatusLabel();
             pnlRegistros = new Panel();
-            materiaToolStripMenuItem = new ToolStripMenuItem();
-            questõesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -58,9 +59,8 @@
             // 
             // geradorDeTestesToolStripMenuItem
             // 
-            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem, materiaToolStripMenuItem });
+            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { materiaToolStripMenuItem, disciplinaToolStripMenuItem, questõesToolStripMenuItem });
             geradorDeTestesToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem, questõesToolStripMenuItem });
             geradorDeTestesToolStripMenuItem.Name = "geradorDeTestesToolStripMenuItem";
             geradorDeTestesToolStripMenuItem.Size = new Size(140, 24);
             geradorDeTestesToolStripMenuItem.Text = "Gerador de Testes";
@@ -68,9 +68,23 @@
             // disciplinaToolStripMenuItem
             // 
             disciplinaToolStripMenuItem.Name = "disciplinaToolStripMenuItem";
-            disciplinaToolStripMenuItem.Size = new Size(180, 24);
+            disciplinaToolStripMenuItem.Size = new Size(143, 24);
             disciplinaToolStripMenuItem.Text = "Disciplina";
             disciplinaToolStripMenuItem.Click += disciplinaToolStripMenuItem_Click;
+            // 
+            // materiaToolStripMenuItem
+            // 
+            materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
+            materiaToolStripMenuItem.Size = new Size(143, 24);
+            materiaToolStripMenuItem.Text = "Materia";
+            materiaToolStripMenuItem.Click += materiaToolStripMenuItem_Click;
+            // 
+            // questõesToolStripMenuItem
+            // 
+            questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
+            questõesToolStripMenuItem.Size = new Size(143, 24);
+            questõesToolStripMenuItem.Text = "Questões";
+            questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 
@@ -155,20 +169,6 @@
             pnlRegistros.Size = new Size(800, 356);
             pnlRegistros.TabIndex = 3;
             // 
-            // materiaToolStripMenuItem
-            // 
-            materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
-            materiaToolStripMenuItem.Size = new Size(180, 24);
-            materiaToolStripMenuItem.Text = "Materia";
-            materiaToolStripMenuItem.Click += materiaToolStripMenuItem_Click;
-            // 
-            // questõesToolStripMenuItem
-            // 
-            questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
-            questõesToolStripMenuItem.Size = new Size(180, 22);
-            questõesToolStripMenuItem.Text = "Questões";
-            questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
-            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -179,6 +179,7 @@
             Controls.Add(toolStrip1);
             Controls.Add(menuStrip1);
             FormBorderStyle = FormBorderStyle.FixedDialog;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             MinimizeBox = false;
