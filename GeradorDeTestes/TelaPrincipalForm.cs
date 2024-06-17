@@ -59,7 +59,7 @@ namespace GeradorDeTestes
 
         private void testesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTeste(repositorioTeste,repositorioMateria, repositorioDisciplina);
+            controlador = new ControladorTeste(repositorioTeste,repositorioMateria, repositorioDisciplina, repositorioQuestao);
 
             ConfigurarTelaPrincipal(controlador);
         }

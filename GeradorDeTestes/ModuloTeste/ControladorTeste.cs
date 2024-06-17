@@ -16,12 +16,14 @@ namespace GeradorDeTestes.ModuloTeste
         private TabelaTeste tabelaTeste;
         private RepositorioDisciplina repositorioDisciplina;
         private RepositorioMateria repositorioMateria;
+        private RepositorioQuestao repositorioQuestao;
         
-        public ControladorTeste (RepositorioTeste repositorio,RepositorioMateria repositorioMateria,RepositorioDisciplina repositorioDisciplina)
+        public ControladorTeste (RepositorioTeste repositorio,RepositorioMateria repositorioMateria,RepositorioDisciplina repositorioDisciplina, RepositorioQuestao repositorioQuestao)
         {
             this.repositorio = repositorio;
             this.repositorioMateria = repositorioMateria; 
             this.repositorioDisciplina = repositorioDisciplina;
+            this.repositorioQuestao = repositorioQuestao;
         }
 
 
