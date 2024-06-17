@@ -31,6 +31,8 @@
             menuStrip1 = new MenuStrip();
             geradorDeTestesToolStripMenuItem = new ToolStripMenuItem();
             disciplinaToolStripMenuItem = new ToolStripMenuItem();
+            materiaToolStripMenuItem = new ToolStripMenuItem();
+            questõesToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             btnAdicionar = new ToolStripButton();
             btnEditar = new ToolStripButton();
@@ -40,8 +42,7 @@
             statusStrip1 = new StatusStrip();
             statusLabelPrincipal = new ToolStripStatusLabel();
             pnlRegistros = new Panel();
-            materiaToolStripMenuItem = new ToolStripMenuItem();
-            questõesToolStripMenuItem = new ToolStripMenuItem();
+            testesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -58,9 +59,8 @@
             // 
             // geradorDeTestesToolStripMenuItem
             // 
-            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem, materiaToolStripMenuItem });
+            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { materiaToolStripMenuItem, disciplinaToolStripMenuItem, questõesToolStripMenuItem, testesToolStripMenuItem });
             geradorDeTestesToolStripMenuItem.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            geradorDeTestesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { disciplinaToolStripMenuItem, questõesToolStripMenuItem });
             geradorDeTestesToolStripMenuItem.Name = "geradorDeTestesToolStripMenuItem";
             geradorDeTestesToolStripMenuItem.Size = new Size(140, 24);
             geradorDeTestesToolStripMenuItem.Text = "Gerador de Testes";
@@ -71,6 +71,20 @@
             disciplinaToolStripMenuItem.Size = new Size(180, 24);
             disciplinaToolStripMenuItem.Text = "Disciplina";
             disciplinaToolStripMenuItem.Click += disciplinaToolStripMenuItem_Click;
+            // 
+            // materiaToolStripMenuItem
+            // 
+            materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
+            materiaToolStripMenuItem.Size = new Size(180, 24);
+            materiaToolStripMenuItem.Text = "Materia";
+            materiaToolStripMenuItem.Click += materiaToolStripMenuItem_Click;
+            // 
+            // questõesToolStripMenuItem
+            // 
+            questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
+            questõesToolStripMenuItem.Size = new Size(180, 24);
+            questõesToolStripMenuItem.Text = "Questões";
+            questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
             // 
             // toolStrip1
             // 
@@ -155,19 +169,12 @@
             pnlRegistros.Size = new Size(800, 356);
             pnlRegistros.TabIndex = 3;
             // 
-            // materiaToolStripMenuItem
+            // testesToolStripMenuItem
             // 
-            materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
-            materiaToolStripMenuItem.Size = new Size(180, 24);
-            materiaToolStripMenuItem.Text = "Materia";
-            materiaToolStripMenuItem.Click += materiaToolStripMenuItem_Click;
-            // 
-            // questõesToolStripMenuItem
-            // 
-            questõesToolStripMenuItem.Name = "questõesToolStripMenuItem";
-            questõesToolStripMenuItem.Size = new Size(180, 22);
-            questõesToolStripMenuItem.Text = "Questões";
-            questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
+            testesToolStripMenuItem.Name = "testesToolStripMenuItem";
+            testesToolStripMenuItem.Size = new Size(180, 24);
+            testesToolStripMenuItem.Text = "Testes";
+            testesToolStripMenuItem.Click += testesToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -211,5 +218,6 @@
         private ToolStripStatusLabel statusLabelPrincipal;
         private ToolStripMenuItem materiaToolStripMenuItem;
         private ToolStripMenuItem questõesToolStripMenuItem;
+        private ToolStripMenuItem testesToolStripMenuItem;
     }
 }
