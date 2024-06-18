@@ -34,8 +34,8 @@ namespace GeradorDeTestes.ModuloTeste
                 txtTitulo.Text = value.Titulo;
                 cmbDisciplina.Text = value.Disciplina.ToString();
                 cmbMateria.Text = value.Materia.ToString();
-                numQtdQuestoes.Maximum = 4;
                 numQtdQuestoes.Value = value.QuantidadeQuestoes;
+                numQtdQuestoes.Maximum = numQtdQuestoes.Maximum;
 
             }
 
