@@ -25,7 +25,6 @@ namespace GeradorDeTestes
             repositorioDisciplina = new RepositorioDisciplina();
             repositorioMateria = new RepositorioMateria();
             repositorioQuestao = new RepositorioQuestao();
-            CadastrarRegistrosTeste();
         }
 
         public void AtualizarRodape(string texto)
@@ -100,27 +99,6 @@ namespace GeradorDeTestes
 
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemObjeto);
-        }
-
-        private void CadastrarRegistrosTeste()
-        {
-
-            List<Disciplina> disciplinas = new List<Disciplina>()
-            {
-                new("Matematica"),
-                new("Português"),
-                new("Geografia")
-            };
-            repositorioDisciplina.CadastrarVarios(disciplinas);
-
-            List<Materia> materias = new List<Materia>()
-            {
-                new("Soma", null, null),
-                new("Vogais", null, null),
-                new("Rios", null, null)
-            };
-            repositorioMateria.CadastrarVarios(materias);
-
         }
 
     }

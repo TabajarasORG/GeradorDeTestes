@@ -17,6 +17,11 @@ namespace GeradorDeTestes.ModuloDisciplina
             Materias = new List<Materia>();
         }
 
+        public Disciplina()
+        {
+            
+        }
+
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Disciplina disciplina = (Disciplina)novoRegistro;
