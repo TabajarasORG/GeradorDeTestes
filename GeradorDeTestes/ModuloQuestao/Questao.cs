@@ -43,5 +43,10 @@ namespace GeradorDeTestes.ModuloQuestao
 
             return erros;
         }
+
+        public override string ToString()
+        {
+            return $"{Enunciado}";
+        }
     }
 }

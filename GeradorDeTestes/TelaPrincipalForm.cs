@@ -125,11 +125,19 @@ namespace GeradorDeTestes
 
             List<Materia> materias = new List<Materia>()
             {
-                new("Soma", null, null),
-                new("Vogais", null, null),
-                new("Rios", null, null)
+                new("Soma", disciplinas[0], "1°"),
+                new("Vogais", disciplinas[1], "1°"),
+                new("Rios", disciplinas[2], "1°")
             };
             repositorioMateria.CadastrarVarios(materias);
+
+            List<Questao> questoes = new List<Questao>()
+            {
+                new(materias[0], "Teste1", new List<Alternativa>(){}),
+                new(materias[0], "Teste2", new List<Alternativa>(){}),
+                new(materias[1], "Teste3", new List<Alternativa>(){})
+            };
+            repositorioQuestao.CadastrarVarios(questoes);
 
         }
     }

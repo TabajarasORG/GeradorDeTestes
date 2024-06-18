@@ -40,7 +40,18 @@ namespace GeradorDeTestes.ModuloTeste
 
         public override List<string> Validar()
         {
-            throw new NotImplementedException();
+            List<string> erros = new List<string>();
+
+            
+
+            return erros;
+        }
+
+        public bool ExisteTeste(List<Teste> testes, int? id)
+        {
+            var teste = testes.Where(d => d.Titulo == Titulo && d.Id != id).FirstOrDefault();
+
+            return teste != null;
         }
 
         public override string ToString()

@@ -39,7 +39,7 @@
             numQtdQuestoes = new NumericUpDown();
             checkRecuperacao = new CheckBox();
             bgQuestoesSelecionadas = new GroupBox();
-            checkedListQuestoes = new CheckedListBox();
+            listQuestoes = new ListBox();
             btnSortear = new Button();
             btnGravar = new Button();
             btnCancelar = new Button();
@@ -90,10 +90,12 @@
             // 
             cmbDisciplina.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             cmbDisciplina.FormattingEnabled = true;
+            cmbDisciplina.ImeMode = ImeMode.NoControl;
             cmbDisciplina.Location = new Point(92, 90);
             cmbDisciplina.Name = "cmbDisciplina";
             cmbDisciplina.Size = new Size(200, 28);
             cmbDisciplina.TabIndex = 4;
+            cmbDisciplina.SelectedIndexChanged += cmbDisciplina_SelectedIndexChanged;
             // 
             // cmbMateria
             // 
@@ -103,6 +105,7 @@
             cmbMateria.Name = "cmbMateria";
             cmbMateria.Size = new Size(200, 28);
             cmbMateria.TabIndex = 5;
+            cmbMateria.SelectedIndexChanged += cmbMateria_SelectedIndexChanged;
             // 
             // lblQtdQuestoes
             // 
@@ -131,10 +134,11 @@
             checkRecuperacao.TabIndex = 8;
             checkRecuperacao.Text = "Prova de Recuperacao";
             checkRecuperacao.UseVisualStyleBackColor = true;
+            checkRecuperacao.CheckedChanged += checkRecuperacao_CheckedChanged;
             // 
             // bgQuestoesSelecionadas
             // 
-            bgQuestoesSelecionadas.Controls.Add(checkedListQuestoes);
+            bgQuestoesSelecionadas.Controls.Add(listQuestoes);
             bgQuestoesSelecionadas.Controls.Add(btnSortear);
             bgQuestoesSelecionadas.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             bgQuestoesSelecionadas.Location = new Point(12, 194);
@@ -144,13 +148,15 @@
             bgQuestoesSelecionadas.TabStop = false;
             bgQuestoesSelecionadas.Text = "Questoes Selecionadas";
             // 
-            // checkedListQuestoes
+            // listQuestoes
             // 
-            checkedListQuestoes.FormattingEnabled = true;
-            checkedListQuestoes.Location = new Point(6, 68);
-            checkedListQuestoes.Name = "checkedListQuestoes";
-            checkedListQuestoes.Size = new Size(457, 202);
-            checkedListQuestoes.TabIndex = 2;
+            listQuestoes.Dock = DockStyle.Bottom;
+            listQuestoes.FormattingEnabled = true;
+            listQuestoes.ItemHeight = 20;
+            listQuestoes.Location = new Point(3, 75);
+            listQuestoes.Name = "listQuestoes";
+            listQuestoes.Size = new Size(463, 204);
+            listQuestoes.TabIndex = 2;
             // 
             // btnSortear
             // 
@@ -160,6 +166,7 @@
             btnSortear.TabIndex = 1;
             btnSortear.Text = "Sortear Questoes";
             btnSortear.UseVisualStyleBackColor = true;
+            btnSortear.Click += btnSortear_Click;
             // 
             // btnGravar
             // 
@@ -237,6 +244,6 @@
         private Button btnGravar;
         private Button btnCancelar;
         private TextBox txtId;
-        private CheckedListBox checkedListQuestoes;
+        private ListBox listQuestoes;
     }
 }

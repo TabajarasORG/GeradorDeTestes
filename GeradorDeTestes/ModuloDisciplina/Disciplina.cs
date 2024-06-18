@@ -36,11 +36,9 @@ namespace GeradorDeTestes.ModuloDisciplina
 
         public bool ExisteDisciplina(List<Disciplina> disciplinas)
         {
-            foreach (Disciplina d in disciplinas)
-                if (d.Nome == Nome)
-                    return true;
-
-            return false;
+            var disciplina = disciplinas.Where(d => d.Nome == Nome).FirstOrDefault();
+            
+            return disciplina != null;
         }
 
         public override string ToString()

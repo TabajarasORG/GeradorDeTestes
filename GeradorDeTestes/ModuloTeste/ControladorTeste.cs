@@ -37,13 +37,15 @@ namespace GeradorDeTestes.ModuloTeste
 
         public override void Adicionar()
         {
-            TelaTesteForm telaTeste = new();
+            TelaTesteForm telaTeste = new TelaTesteForm(repositorio.SelecionarTodos());
 
             List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
             List<Materia> materias = repositorioMateria.SelecionarTodos();
+            List<Questao> questoes = repositorioQuestao.SelecionarTodos();
 
             telaTeste.CarregarDisciplina(disciplinas);
             telaTeste.CarregarMateria(materias);
+            telaTeste.CarregarQuestao(questoes);
 
             DialogResult resultado = telaTeste.ShowDialog();
 
@@ -59,15 +61,18 @@ namespace GeradorDeTestes.ModuloTeste
 
         public override void Editar()
         {
-            TelaTesteForm telaTeste = new();
+            int idSelecionado = tabelaTeste.ObterRegistroSelecionado();
 
-            List<Disciplina> disciplinas = new List<Disciplina>();
-            List<Materia> materias = new List<Materia>();
+            TelaTesteForm telaTeste = new TelaTesteForm(repositorio.SelecionarTodos(), idSelecionado);
+
+            List<Disciplina> disciplinas = repositorioDisciplina.SelecionarTodos();
+            List<Materia> materias = repositorioMateria.SelecionarTodos();
+            List<Questao> questoes = repositorioQuestao.SelecionarTodos();
 
             telaTeste.CarregarDisciplina(disciplinas);
             telaTeste.CarregarMateria(materias);
+            telaTeste.CarregarQuestao(questoes);
 
-            int idSelecionado = tabelaTeste.ObterRegistroSelecionado();
 
             if (idSelecionado == null)
             {
