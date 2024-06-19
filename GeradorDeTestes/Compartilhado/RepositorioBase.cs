@@ -9,6 +9,7 @@ namespace eAgenda.ConsoleApp.Compartilhado
 
         protected int contadorId = 1;
 
+
         private string caminho = string.Empty;
 
         protected RepositorioBase(string nomeArquivo)
@@ -103,4 +104,3 @@ namespace eAgenda.ConsoleApp.Compartilhado
             return registros;
         }
     }
-}
