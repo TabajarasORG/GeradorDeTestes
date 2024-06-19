@@ -37,6 +37,7 @@
             groupBox1 = new GroupBox();
             listQuestoes = new ListBox();
             btnFechar = new Button();
+            btnPDF = new Button();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -127,11 +128,23 @@
             btnFechar.Text = "Fechar";
             btnFechar.UseVisualStyleBackColor = true;
             // 
+            // btnPDF
+            // 
+            btnPDF.DialogResult = DialogResult.OK;
+            btnPDF.Location = new Point(12, 454);
+            btnPDF.Name = "btnPDF";
+            btnPDF.Size = new Size(120, 39);
+            btnPDF.TabIndex = 4;
+            btnPDF.Text = "Gerar PDF";
+            btnPDF.UseVisualStyleBackColor = true;
+            btnPDF.Click += btnPDF_Click;
+            // 
             // TelaVisualizarTesteForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(417, 505);
+            Controls.Add(btnPDF);
             Controls.Add(btnFechar);
             Controls.Add(groupBox1);
             Controls.Add(lblMateria);
@@ -164,5 +177,6 @@
         private GroupBox groupBox1;
         private ListBox listQuestoes;
         private Button btnFechar;
+        private Button btnPDF;
     }
 }
