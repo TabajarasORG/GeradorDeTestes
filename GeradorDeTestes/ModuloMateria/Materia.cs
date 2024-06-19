@@ -23,6 +23,11 @@ namespace GeradorDeTestes.ModuloMateria
             Serie = serie;
         }
 
+        public Materia()
+        {
+            
+        }
+
         public override List<string> Validar()
         {
             List<string> erros = new List<string>();

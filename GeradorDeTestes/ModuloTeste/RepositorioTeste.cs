@@ -9,5 +9,9 @@ namespace GeradorDeTestes.ModuloTeste
 {
     public class RepositorioTeste : RepositorioBase<Teste>
     {
+        public RepositorioTeste() : base("Teste")
+        {
+            
+        }
     }
 }

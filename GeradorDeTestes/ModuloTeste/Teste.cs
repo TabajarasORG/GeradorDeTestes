@@ -28,6 +28,11 @@ namespace GeradorDeTestes.ModuloTeste
             QuantidadeQuestoes = quantidadeQuestoes;
         }
 
+        public Teste()
+        {
+           
+        }
+
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Teste teste = (Teste) novoRegistro;
