@@ -1,4 +1,5 @@
 using eAgenda.WinApp.Compartilhado;
+using GeradorDeTestes.Compartilhado;
 using GeradorDeTestes.ModuloDisciplina;
 using GeradorDeTestes.ModuloMateria;
 using GeradorDeTestes.ModuloQuestao;
@@ -59,7 +60,7 @@ namespace GeradorDeTestes
 
         private void testesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorTeste(repositorioTeste,repositorioMateria, repositorioDisciplina, repositorioQuestao);
+            controlador = new ControladorTeste(repositorioTeste, repositorioMateria, repositorioDisciplina, repositorioQuestao);
 
             ConfigurarTelaPrincipal(controlador);
         }
@@ -78,6 +79,17 @@ namespace GeradorDeTestes
         {
             controlador.Excluir();
         }
+        private void btnDuplicar_Click(object sender, EventArgs e)
+        {
+            if(controlador is IControladorDuplicar controladorDuplicar)
+                controladorDuplicar.DuplicarTeste();
+        }
+
+        private void btnVisualizar_Click(object sender, EventArgs e)
+        {
+            if(controlador is IControladorVisualizar controladorVisualizar)
+                controladorVisualizar.VisualizarTeste();
+        }
 
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
         {
@@ -93,6 +105,9 @@ namespace GeradorDeTestes
             btnEditar.Enabled = controladorSelecionado is ControladorBase;
             btnExcluir.Enabled = controladorSelecionado is ControladorBase;
 
+            btnDuplicar.Enabled = controladorSelecionado is IControladorDuplicar;
+            btnVisualizar.Enabled = controladorSelecionado is IControladorVisualizar;
+
             ConfigurarToolTips(controladorSelecionado);
         }
 
@@ -101,6 +116,12 @@ namespace GeradorDeTestes
             btnAdicionar.ToolTipText = controladorSelecionado.ToolTipAdicionar;
             btnEditar.ToolTipText = controladorSelecionado.ToolTipEditar;
             btnExcluir.ToolTipText = controladorSelecionado.ToolTipExcluir;
+
+            if (controladorSelecionado is IControladorDuplicar controladorDuplicar)
+                btnDuplicar.ToolTipText = controladorDuplicar.ToolTipDuplicarTeste;
+
+            if (controladorSelecionado is IControladorVisualizar controladorVisualizar)
+                btnVisualizar.ToolTipText = controladorVisualizar.ToolTipVisualizarTeste;
         }
 
         private void ConfigurarListagem(ControladorBase controladorSelecionado)
@@ -140,5 +161,6 @@ namespace GeradorDeTestes
             repositorioQuestao.CadastrarVarios(questoes);
 
         }
+
     }
 }

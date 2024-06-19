@@ -30,19 +30,22 @@
         {
             menuStrip1 = new MenuStrip();
             geradorDeTestesToolStripMenuItem = new ToolStripMenuItem();
-            disciplinaToolStripMenuItem = new ToolStripMenuItem();
             materiaToolStripMenuItem = new ToolStripMenuItem();
+            disciplinaToolStripMenuItem = new ToolStripMenuItem();
             questõesToolStripMenuItem = new ToolStripMenuItem();
+            testesToolStripMenuItem = new ToolStripMenuItem();
             toolStrip1 = new ToolStrip();
             btnAdicionar = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
+            btnDuplicar = new ToolStripButton();
+            btnVisualizar = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
             lblTipoCadastro = new ToolStripLabel();
             statusStrip1 = new StatusStrip();
             statusLabelPrincipal = new ToolStripStatusLabel();
             pnlRegistros = new Panel();
-            testesToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -65,19 +68,19 @@
             geradorDeTestesToolStripMenuItem.Size = new Size(140, 24);
             geradorDeTestesToolStripMenuItem.Text = "Gerador de Testes";
             // 
-            // disciplinaToolStripMenuItem
-            // 
-            disciplinaToolStripMenuItem.Name = "disciplinaToolStripMenuItem";
-            disciplinaToolStripMenuItem.Size = new Size(180, 24);
-            disciplinaToolStripMenuItem.Text = "Disciplina";
-            disciplinaToolStripMenuItem.Click += disciplinaToolStripMenuItem_Click;
-            // 
             // materiaToolStripMenuItem
             // 
             materiaToolStripMenuItem.Name = "materiaToolStripMenuItem";
             materiaToolStripMenuItem.Size = new Size(180, 24);
             materiaToolStripMenuItem.Text = "Materia";
             materiaToolStripMenuItem.Click += materiaToolStripMenuItem_Click;
+            // 
+            // disciplinaToolStripMenuItem
+            // 
+            disciplinaToolStripMenuItem.Name = "disciplinaToolStripMenuItem";
+            disciplinaToolStripMenuItem.Size = new Size(180, 24);
+            disciplinaToolStripMenuItem.Text = "Disciplina";
+            disciplinaToolStripMenuItem.Click += disciplinaToolStripMenuItem_Click;
             // 
             // questõesToolStripMenuItem
             // 
@@ -86,10 +89,17 @@
             questõesToolStripMenuItem.Text = "Questões";
             questõesToolStripMenuItem.Click += questõesToolStripMenuItem_Click;
             // 
+            // testesToolStripMenuItem
+            // 
+            testesToolStripMenuItem.Name = "testesToolStripMenuItem";
+            testesToolStripMenuItem.Size = new Size(180, 24);
+            testesToolStripMenuItem.Text = "Testes";
+            testesToolStripMenuItem.Click += testesToolStripMenuItem_Click;
+            // 
             // toolStrip1
             // 
             toolStrip1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, toolStripSeparator1, lblTipoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnAdicionar, btnEditar, btnExcluir, toolStripSeparator1, btnDuplicar, btnVisualizar, toolStripSeparator2, lblTipoCadastro });
             toolStrip1.Location = new Point(0, 28);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 41);
@@ -118,7 +128,6 @@
             btnEditar.Name = "btnEditar";
             btnEditar.Padding = new Padding(5);
             btnEditar.Size = new Size(38, 38);
-            btnEditar.Text = "toolStripButton2";
             btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
@@ -131,13 +140,41 @@
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Padding = new Padding(5);
             btnExcluir.Size = new Size(38, 38);
-            btnExcluir.Text = "toolStripButton3";
             btnExcluir.Click += btnExcluir_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
             toolStripSeparator1.Size = new Size(6, 41);
+            // 
+            // btnDuplicar
+            // 
+            btnDuplicar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnDuplicar.Enabled = false;
+            btnDuplicar.Image = Properties.Resources.btnDuplicar1;
+            btnDuplicar.ImageScaling = ToolStripItemImageScaling.None;
+            btnDuplicar.ImageTransparentColor = Color.Magenta;
+            btnDuplicar.Name = "btnDuplicar";
+            btnDuplicar.Padding = new Padding(5);
+            btnDuplicar.Size = new Size(38, 38);
+            btnDuplicar.Click += btnDuplicar_Click;
+            // 
+            // btnVisualizar
+            // 
+            btnVisualizar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnVisualizar.Enabled = false;
+            btnVisualizar.Image = Properties.Resources.btnVisualizar1;
+            btnVisualizar.ImageScaling = ToolStripItemImageScaling.None;
+            btnVisualizar.ImageTransparentColor = Color.Magenta;
+            btnVisualizar.Name = "btnVisualizar";
+            btnVisualizar.Padding = new Padding(5);
+            btnVisualizar.Size = new Size(38, 38);
+            btnVisualizar.Click += btnVisualizar_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 41);
             // 
             // lblTipoCadastro
             // 
@@ -168,13 +205,6 @@
             pnlRegistros.Name = "pnlRegistros";
             pnlRegistros.Size = new Size(800, 356);
             pnlRegistros.TabIndex = 3;
-            // 
-            // testesToolStripMenuItem
-            // 
-            testesToolStripMenuItem.Name = "testesToolStripMenuItem";
-            testesToolStripMenuItem.Size = new Size(180, 24);
-            testesToolStripMenuItem.Text = "Testes";
-            testesToolStripMenuItem.Click += testesToolStripMenuItem_Click;
             // 
             // TelaPrincipalForm
             // 
@@ -219,5 +249,8 @@
         private ToolStripMenuItem materiaToolStripMenuItem;
         private ToolStripMenuItem questõesToolStripMenuItem;
         private ToolStripMenuItem testesToolStripMenuItem;
+        private ToolStripButton btnDuplicar;
+        private ToolStripButton btnVisualizar;
+        private ToolStripSeparator toolStripSeparator2;
     }
 }
