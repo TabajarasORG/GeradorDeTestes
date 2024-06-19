@@ -59,22 +59,23 @@ namespace GeradorDeTestes.ModuloTeste
 
                     page.Content()
                      .PaddingVertical(value: 1, Unit.Centimetre)
-                     .DefaultTextStyle(x => x.FontSize(15))
+                     .DefaultTextStyle(x => x.FontSize(18))
 
                      .Column(x =>
                      {
                          x.Item()
-                     .Text($"Disciplina: {lblDisciplina.Text}");
+                         .Text($"Disciplina: {lblDisciplina.Text}");
 
                          x.Item()
-                     .Text($"Titulo: {lblTitulo.Text}");
+                         .Text($"Titulo: {lblTitulo.Text}");
 
                          x.Item()
                          .DefaultTextStyle(x => x.FontSize(20))
-                          .PaddingTop(value: 1, Unit.Centimetre)
+                         .PaddingTop(value: 10, Unit.Millimetre)
+                         .PaddingBottom(value: 4, Unit.Millimetre)
                          .Text("Questoes");
 
-                         for(int i = 0; i < listQuestoes.Items.Count; i++)
+                         for (int i = 0; i < listQuestoes.Items.Count; i++)
                          {
                              x.Item()
                             .Text($"{listQuestoes.Items[i]}");
@@ -83,8 +84,13 @@ namespace GeradorDeTestes.ModuloTeste
                      });
 
                     page.Footer()
+                    .DefaultTextStyle(x => x.FontSize(10))
                     .AlignCenter()
-                    .Text("texto de teste");
+                    .Text(x =>
+                    {
+                        x.Span("Pagina ");
+                        x.CurrentPageNumber();
+                    });
                 });
             }).GeneratePdfAndShow();
         }
