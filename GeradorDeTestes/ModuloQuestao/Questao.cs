@@ -24,6 +24,11 @@ namespace GeradorDeTestes.ModuloQuestao
             Alternativas = alternativas;
         }
 
+        public Questao()
+        {
+            
+        }
+
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
             Questao questao = (Questao)novoRegistro;
