@@ -39,9 +39,9 @@ namespace GeradorDeTestes.ModuloDisciplina
             return erros;
         }
 
-        public bool ExisteDisciplina(List<Disciplina> disciplinas)
+        public bool ExisteDisciplina(List<Disciplina> disciplinas, int? id)
         {
-            var disciplina = disciplinas.Where(d => d.Nome == Nome).FirstOrDefault();
+            var disciplina = disciplinas.Where(d => d.Nome == Nome && d.Id != id).FirstOrDefault();
             
             return disciplina != null;
         }

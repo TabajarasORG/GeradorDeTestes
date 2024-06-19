@@ -218,6 +218,7 @@
             Controls.Add(lblDisciplina);
             Controls.Add(lblTitulo);
             Controls.Add(txtTitulo);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "TelaTesteForm";
             StartPosition = FormStartPosition.CenterParent;

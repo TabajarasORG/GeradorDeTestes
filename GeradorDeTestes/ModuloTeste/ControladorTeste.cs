@@ -165,13 +165,14 @@ namespace GeradorDeTestes.ModuloTeste
 
             if (resultado != DialogResult.OK)
                 return;
-
+            
             Teste novoTeste = telaTeste.Teste;
 
             repositorio.Cadastrar(novoTeste);
 
             CarregarTeste();
         }
+
         public void VisualizarTeste()
         {
             int idSelecionado = tabelaTeste.ObterRegistroSelecionado();

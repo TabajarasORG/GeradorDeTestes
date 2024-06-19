@@ -102,7 +102,7 @@
             groupBox1.Controls.Add(listQuestoes);
             groupBox1.Location = new Point(12, 124);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(393, 435);
+            groupBox1.Size = new Size(390, 319);
             groupBox1.TabIndex = 2;
             groupBox1.TabStop = false;
             groupBox1.Text = "Questões Selecionadas:";
@@ -114,13 +114,13 @@
             listQuestoes.ItemHeight = 20;
             listQuestoes.Location = new Point(3, 23);
             listQuestoes.Name = "listQuestoes";
-            listQuestoes.Size = new Size(387, 409);
+            listQuestoes.Size = new Size(384, 293);
             listQuestoes.TabIndex = 0;
             // 
             // btnFechar
             // 
             btnFechar.DialogResult = DialogResult.Cancel;
-            btnFechar.Location = new Point(282, 580);
+            btnFechar.Location = new Point(279, 449);
             btnFechar.Name = "btnFechar";
             btnFechar.Size = new Size(120, 39);
             btnFechar.TabIndex = 3;
@@ -131,7 +131,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(417, 631);
+            ClientSize = new Size(417, 505);
             Controls.Add(btnFechar);
             Controls.Add(groupBox1);
             Controls.Add(lblMateria);
@@ -143,6 +143,8 @@
             Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "TelaVisualizarTesteForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Visualização de Teste";

@@ -36,7 +36,6 @@ namespace GeradorDeTestes.ModuloTeste
                 cmbMateria.Text = value.Materia.ToString();
                 numQtdQuestoes.Value = value.QuantidadeQuestoes;
                 numQtdQuestoes.Maximum = numQtdQuestoes.Maximum;
-
             }
 
             get { return teste; }
@@ -50,7 +49,6 @@ namespace GeradorDeTestes.ModuloTeste
             this.testes = testes;
             this.idSelecionado = idSelecionado;
         }
-
 
         public void CarregarDisciplina(List<Disciplina> disciplinas)
         {
@@ -74,6 +72,8 @@ namespace GeradorDeTestes.ModuloTeste
             copiaQuestoes = questoes;
         }
 
+        public List<Questao> questoes = new List<Questao>();
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string titulo = txtTitulo.Text;
@@ -81,7 +81,7 @@ namespace GeradorDeTestes.ModuloTeste
             Materia materia = (Materia)cmbMateria.SelectedItem;
             int qtdQuestoes = (int)numQtdQuestoes.Value;
 
-            teste = new Teste(titulo, disciplina, materia, qtdQuestoes);
+            teste = new Teste(titulo, disciplina, materia, qtdQuestoes, questoes);
 
             List<string> erros = teste.Validar();
 
@@ -124,6 +124,7 @@ namespace GeradorDeTestes.ModuloTeste
             for (int i = 0; i < (int)numQtdQuestoes.Value; i++)
             {
                 listQuestoes.Items.Add(questoesAleatorias[i]);
+                questoes.Add(questoesAleatorias[i]);
             }
         }
 

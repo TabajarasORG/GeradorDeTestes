@@ -12,32 +12,26 @@ namespace GeradorDeTestes.ModuloTeste
 {
     public partial class TelaVisualizarTesteForm : Form
     {
-        private Teste teste;
+        private Teste testeSelecionado;
 
-        public Teste Teste 
-        { 
-            get 
-            { 
-                return teste; 
-            }
-            set
-            {
-                this.teste = value;
-            }
-        }
         public TelaVisualizarTesteForm(Teste testeSelecionado)
         {
             InitializeComponent();
 
-            Teste = testeSelecionado;
+            this.testeSelecionado = testeSelecionado;
 
             lblTitulo.Text = testeSelecionado.Titulo;
             lblDisciplina.Text = testeSelecionado.Disciplina.Nome;
             lblMateria.Text = testeSelecionado.Materia.Nome;
-            //foreach (var questao in testeSelecionado.)
-            //{
-            //    listQuestoes.Items.Add(questao.Texto);
-            //}
+            CarregarQuestoes(testeSelecionado);
+        }
+
+        private void CarregarQuestoes(Teste testeSelecionado)
+        {
+            foreach (var questao in testeSelecionado.Questoes)
+            {
+                listQuestoes.Items.Add(questao);
+            }
         }
     }
 }

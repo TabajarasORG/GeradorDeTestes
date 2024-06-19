@@ -1,6 +1,7 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
 using GeradorDeTestes.ModuloDisciplina;
 using GeradorDeTestes.ModuloMateria;
+using GeradorDeTestes.ModuloQuestao;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,15 @@ namespace GeradorDeTestes.ModuloTeste
 
         public int QuantidadeQuestoes { get; set; }
 
-        public Teste(string titulo, Disciplina disciplina, Materia materia, int quantidadeQuestoes)
+        public List<Questao> Questoes { get; set; }
+
+        public Teste(string titulo, Disciplina disciplina, Materia materia, int quantidadeQuestoes, List<Questao> questoes)
         {
             Titulo = titulo;
             Disciplina = disciplina;
             Materia = materia;
             QuantidadeQuestoes = quantidadeQuestoes;
+            Questoes = questoes;
         }
 
         public Teste()
