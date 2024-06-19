@@ -44,9 +44,9 @@ namespace eAgenda.ConsoleApp.Compartilhado
 
         virtual public bool Excluir(int id)
         {
-            bool consegiuExcluir =  registros.Remove(SelecionarPorId(id));
+            bool consegiuExcluir = registros.Remove(SelecionarPorId(id));
 
-            if(!consegiuExcluir) return false;
+            if (!consegiuExcluir) return false;
 
             SerealizarRegistros();
 
@@ -89,7 +89,7 @@ namespace eAgenda.ConsoleApp.Compartilhado
         {
             FileInfo arquivo = new(caminho);
 
-            if(!arquivo.Exists)
+            if (!arquivo.Exists)
                 return new List<T>();
 
             byte[] registroEmBytes = File.ReadAllBytes(caminho);
@@ -99,8 +99,9 @@ namespace eAgenda.ConsoleApp.Compartilhado
                 ReferenceHandler = ReferenceHandler.Preserve
             };
 
-            List<T> registros = JsonSerializer.Deserialize<List<T>>(registroEmBytes,options);
+            List<T> registros = JsonSerializer.Deserialize<List<T>>(registroEmBytes, options);
 
             return registros;
         }
     }
+}

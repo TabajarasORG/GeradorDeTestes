@@ -15,13 +15,13 @@ namespace GeradorDeTestes.ModuloQuestao
             this.repositorioQuestao = repositorio;
             this.repositorioMateria = repositorioMateria;
         }
-        public override string TipoCadastro { get { return "Questões"; } }
+        public override string TipoCadastro => "Questões";
 
-        public override string ToolTipAdicionar { get { return "Cadastrar um nova questão"; } }
+        public override string ToolTipAdicionar => "Cadastrar um nova QUESTÃO";
 
-        public override string ToolTipEditar { get { return "Editar uma questão existente"; } }
+        public override string ToolTipEditar => "Editar uma QUESTÃO existente";
 
-        public override string ToolTipExcluir { get { return "Excluir uma questão existente"; } }
+        public override string ToolTipExcluir => "Excluir uma QUESTÃO existente";
 
 
         public override void Adicionar()

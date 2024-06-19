@@ -80,13 +80,13 @@ namespace GeradorDeTestes
         }
         private void btnDuplicar_Click(object sender, EventArgs e)
         {
-            if(controlador is IControladorDuplicar controladorDuplicar)
+            if (controlador is IControladorDuplicar controladorDuplicar)
                 controladorDuplicar.DuplicarTeste();
         }
 
         private void btnVisualizar_Click(object sender, EventArgs e)
         {
-            if(controlador is IControladorVisualizar controladorVisualizar)
+            if (controlador is IControladorVisualizar controladorVisualizar)
                 controladorVisualizar.VisualizarTeste();
         }
 
@@ -134,3 +134,4 @@ namespace GeradorDeTestes
         }
 
     }
+}

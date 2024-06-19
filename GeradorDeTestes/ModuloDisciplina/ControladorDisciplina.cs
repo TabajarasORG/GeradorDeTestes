@@ -20,13 +20,13 @@ namespace GeradorDeTestes.ModuloDisciplina
             this.repositorioMateria = repositorioMateria;
         }
 
-        public override string TipoCadastro { get { return "Disciplina"; } }
+        public override string TipoCadastro => "Disciplina";
 
-        public override string ToolTipAdicionar { get { return "Cadastrar um nova disciplina"; } }
+        public override string ToolTipAdicionar => "Cadastrar um nova DISCIPLINA";
 
-        public override string ToolTipEditar { get { return "Editar uma disciplina existente"; } }
+        public override string ToolTipEditar => "Editar uma DISCIPLINA existente";
 
-        public override string ToolTipExcluir { get { return "Excluir uma disciplina existente"; } }
+        public override string ToolTipExcluir => "Excluir uma DISCIPLINA existente";
 
         public override void Adicionar()
         {

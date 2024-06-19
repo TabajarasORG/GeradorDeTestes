@@ -58,6 +58,13 @@ namespace GeradorDeTestes.ModuloMateria
             materia.Disciplina.Materias.Add(materia);
 
             List<string> erros = materia.Validar();
+
+            if (erros.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+            }
         }
     }
 }

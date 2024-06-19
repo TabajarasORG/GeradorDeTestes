@@ -51,8 +51,8 @@ namespace GeradorDeTestes.ModuloTeste
         {
             List<string> erros = new List<string>();
 
-            
-
+            if (string.IsNullOrEmpty(Titulo.Trim()))
+                erros.Add("O campo \"titulo\" é obrigatório");
             return erros;
         }
 
