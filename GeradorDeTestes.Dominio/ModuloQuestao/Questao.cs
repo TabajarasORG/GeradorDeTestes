@@ -1,12 +1,5 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
-using FestasInfantis.WinApp.Compartilhado;
-using GeradorDeTestes.ModuloDisciplina;
 using GeradorDeTestes.ModuloMateria;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GeradorDeTestes.ModuloQuestao
 {

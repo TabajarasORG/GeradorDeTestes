@@ -1,5 +1,4 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
-using FestasInfantis.WinApp.Compartilhado;
 using GeradorDeTestes.ModuloMateria;
 
 namespace GeradorDeTestes.ModuloDisciplina
@@ -45,10 +44,10 @@ namespace GeradorDeTestes.ModuloDisciplina
             
             return disciplina != null;
         }
-
-        public override string ToString()
-        {
-            return Nome.ToTitleCase();
-        }
+        // Nao funcional com a arquitetura DDD
+        //public override string ToString()
+        //{
+        //    return Nome.ToTitleCase();
+        //}
     }
 }
